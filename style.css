@@ -1,0 +1,120 @@
+:root {
+    --primary: #00f2ff;
+    --secondary: #7000ff;
+    --bg-dark: #0a0a0c;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    cursor: none; /* Esconde cursor padrão */
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* --- Glassmorphism --- */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+}
+
+/* --- Partículas Background --- */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* --- Mouse Cursor --- */
+#custom-cursor {
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+}
+
+#cursor-blur {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(112, 0, 255, 0.15) 0%, transparent 70%);
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+}
+
+/* --- Hero & Parallax --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.liquid-text {
+    font-size: 5rem;
+    background: linear-gradient(90deg, #fff, var(--primary), #fff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animateLiquid 5s linear infinite;
+}
+
+@keyframes animateLiquid {
+    to { background-position: 200% center; }
+}
+
+/* --- Bento Grid --- */
+.services-section { padding: 100px 5%; }
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 20px;
+}
+
+.bento-item {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.bento-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.item-1 { grid-column: span 2; }
+.item-2 { grid-column: span 1; }
+.item-3 { grid-column: span 1; grid-row: span 2; }
+.item-4 { grid-column: span 3; }
+
+/* --- Portfolio --- */
+.video-container {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+video { width: 100%; display: block; }
