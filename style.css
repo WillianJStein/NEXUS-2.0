@@ -154,10 +154,24 @@ border-bottom: 1px solid var(--glass-border);
 /* 10. CONTATO (Estilização dos inputs) */
 .contact-box { max-width: 800px; margin: 0 auto; }
 .contact-box h2 { margin-bottom: 30px; text-align: center; font-family: 'Syncopate'; }
-.input-group { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.input-group { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; /* Divide em duas colunas iguais */
+    gap: 20px; /* Espaço real entre os campos */
+    margin-bottom: 20px; 
+    width: 100%; /* Garante que o grupo use toda a largura do card */
+}
 input, textarea {
-width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
-border-radius: 15px; padding: 15px; color: #fff; font-family: 'Outfit'; outline: none; transition: 0.3s;
+    width: 100%; /* Força o campo a respeitar o limite da coluna do grid */
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border);
+    border-radius: 15px; 
+    padding: 15px; 
+    color: #fff; 
+    font-family: 'Outfit', sans-serif; 
+    outline: none; 
+    transition: 0.3s;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho do campo */
 }
 input:focus, textarea:focus { border-color: var(--primary); background: rgba(255,255,255,0.1); }
 button.btn-primary { border: none; width: 100%; margin-top: 20px; cursor: none; }
@@ -174,3 +188,4 @@ button.btn-primary { border: none; width: 100%; margin-top: 20px; cursor: none; 
 .stats-grid { flex-direction: column; gap: 40px; }
 .nav-links { display: none; }
 }
+
