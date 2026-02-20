@@ -1,30 +1,18 @@
-// 1. Mouse Customizado
-const cursor = document.querySelector('#custom-cursor');
-const cursorBlur = document.querySelector('#cursor-blur');
+// 1. Mouse Pointer & Glow
+const cursor = document.getElementById('custom-cursor');
+const blur = document.getElementById('cursor-blur');
 
 document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
     
-    // Suavização do blur de fundo
-    cursorBlur.animate({
+    blur.animate({
         left: `${e.clientX}px`,
         top: `${e.clientY}px`
-    }, { duration: 500, fill: "forwards" });
+    }, { duration: 1200, fill: "forwards" });
 });
 
-// 2. Efeito Parallax Simples
-window.addEventListener('scroll', () => {
-    const parallax = document.querySelectorAll('.parallax');
-    let scrollValue = window.pageYOffset;
-
-    parallax.forEach(el => {
-        let speed = el.dataset.speed || 0.5;
-        el.style.backgroundPositionY = -(scrollValue * speed) + 'px';
-    });
-});
-
-// 3. Sistema de Partículas (Minimalista)
+// 2. Partículas (Efeito Espacial 2026)
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -36,9 +24,9 @@ class Particle {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
+        this.size = Math.random() * 2;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
     }
     update() {
         this.x += this.speedX;
@@ -49,7 +37,7 @@ class Particle {
         if (this.y < 0) this.y = canvas.height;
     }
     draw() {
-        ctx.fillStyle = 'rgba(0, 242, 255, 0.5)';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -57,7 +45,8 @@ class Particle {
 }
 
 function init() {
-    for (let i = 0; i < 100; i++) {
+    particlesArray = [];
+    for (let i = 0; i < 150; i++) {
         particlesArray.push(new Particle());
     }
 }
@@ -70,12 +59,29 @@ function animate() {
     });
     requestAnimationFrame(animate);
 }
+init(); animate();
 
-init();
-animate();
+// 3. Efeito Parallax Suave no Scroll
+window.addEventListener('scroll', () => {
+    const parallaxElements = document.querySelectorAll('.parallax');
+    let scroll = window.pageYOffset;
 
-// Ajuste redimensionamento
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    parallaxElements.forEach(el => {
+        let speed = el.dataset.speed;
+        el.style.transform = `translateY(${scroll * speed}px)`;
+    });
+});
+
+// 4. Tilt Effect (Inclinação) nos Cards do Bento Grid
+document.querySelectorAll('.bento-item').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const { left, top, width, height } = card.getBoundingClientRect();
+        const x = (e.clientX - left - width / 2) / 15;
+        const y = (e.clientY - top - height / 2) / 15;
+        card.style.transform = `perspective(1000px) rotateX(${-y}deg) rotateY(${x}deg)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+    });
 });
