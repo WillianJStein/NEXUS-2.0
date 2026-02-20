@@ -3,116 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus | Inovação Digital</title>
+    <title>Nexus | Inovação e Tecnologia Digital</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Fontes e Ícones -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+    <!-- Fontes Premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Mouse Pointer Customizado -->
+    <!-- Elementos Visuais de Fundo -->
     <div id="custom-cursor"></div>
     <div id="cursor-blur"></div>
-
-    <!-- Background de Partículas -->
     <canvas id="particles-canvas"></canvas>
+    <div class="bg-glow"></div>
 
-    <!-- Header / Navbar -->
-    <header class="glass">
-        <nav>
+    <!-- Header Glassmorphism -->
+    <header class="glass-nav">
+        <nav class="container">
             <div class="logo">NEXUS<span>.</span></div>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#services">Serviços</a></li>
                 <li><a href="#portfolio">Projetos</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
+            <a href="#contact" class="btn-nav">Get Started</a>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section com Efeito Parallax -->
-        <section id="home" class="hero parallax">
-            <div class="hero-content" data-speed="0.5">
+        <!-- Hero Section (Parallax) -->
+        <section id="home" class="hero">
+            <div class="hero-content parallax" data-speed="0.2">
+                <span class="tagline">The Next Era of Web</span>
                 <h1 class="liquid-text">Conectando o Futuro<span>.</span></h1>
-                <p>A Nexus transforma ideias complexas em experiências digitais excepcionais.</p>
+                <p>A Nexus é uma agência boutique de tecnologia que transforma ideias complexas em experiências digitais excepcionais, focada em performance e design de alto impacto.</p>
                 <div class="hero-btns">
-                    <a href="#portfolio" class="btn-primary">Ver Projetos</a>
-                    <a href="#contact" class="btn-secondary">Falar Conosco</a>
+                    <a href="#portfolio" class="btn-primary">Ver Portfólio</a>
+                    <a href="#about" class="btn-secondary">Nossa História</a>
                 </div>
             </div>
         </section>
 
-        <!-- Seção Sobre (Glassmorphism) -->
-        <section id="about" class="about-section">
-            <div class="container glass card-about">
-                <h2>A Experiência Nexus</h2>
-                <p>Nossa missão é criar a intersecção perfeita entre tecnologia de ponta e design intuitivo. No Site-Nexus, cada linha de código é pensada para performance e impacto visual.</p>
+        <!-- Seção Sobre (Glassmorphism & Info) -->
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text glass">
+                        <h2>A Experiência Nexus</h2>
+                        <p>No Site-Nexus, não apenas construímos sites; moldamos identidades digitais. Nossa missão é criar a intersecção perfeita entre tecnologia de ponta e design intuitivo.</p>
+                        <p>Combinamos metodologias ágeis com o que há de mais moderno no ecossistema de desenvolvimento (React, Next.js, WebGL) para garantir que seu projeto seja escalável, seguro e visualmente arrebatador.</p>
+                        <div class="stats">
+                            <div class="stat-item"><strong>10+</strong><span>Anos de Exp.</span></div>
+                            <div class="stat-item"><strong>150+</strong><span>Projetos</span></div>
+                            <div class="stat-item"><strong>100%</strong><span>Digital</span></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Seção Serviços (Bento Grid) -->
-        <section id="services" class="services-section">
-            <h2 class="section-title">Nossas Especialidades</h2>
-            <div class="bento-grid">
-                <div class="bento-item item-1 glass">
-                    <i class="fas fa-code"></i>
-                    <h3>Web Development</h3>
-                    <p>Sistemas robustos e escaláveis.</p>
-                </div>
-                <div class="bento-item item-2 glass">
-                    <i class="fas fa-paint-brush"></i>
-                    <h3>UI/UX Design</h3>
-                    <p>Interfaces que encantam.</p>
-                </div>
-                <div class="bento-item item-3 glass">
-                    <h3>Inovação AI</h3>
-                    <p>Integrando inteligência artificial ao seu negócio.</p>
-                </div>
-                <div class="bento-item item-4 glass">
-                    <h3>Mobile Apps</h3>
-                    <p>Presença em todas as telas.</p>
+        <section id="services" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Nossas Especialidades</h2>
+                <div class="bento-grid">
+                    <div class="bento-item glass item-main">
+                        <div class="icon">💻</div>
+                        <h3>Web Development</h3>
+                        <p>Criação de ecossistemas web robustos, SPAs e PWAs utilizando tecnologias de última geração para máxima performance.</p>
+                        <ul class="tech-tags">
+                            <li>React</li><li>Next.js</li><li>TypeScript</li>
+                        </ul>
+                    </div>
+                    <div class="bento-item glass">
+                        <div class="icon">🎨</div>
+                        <h3>UI/UX Design</h3>
+                        <p>Interfaces pensadas na jornada do usuário e na conversão do seu negócio.</p>
+                    </div>
+                    <div class="bento-item glass">
+                        <div class="icon">🤖</div>
+                        <h3>Inovação AI</h3>
+                        <p>Integração de LLMs e inteligência artificial para automação de processos internos.</p>
+                    </div>
+                    <div class="bento-item glass item-wide">
+                        <div class="icon">📱</div>
+                        <h3>Mobile App Solutions</h3>
+                        <p>Desenvolvimento cross-platform (iOS/Android) com foco em experiência nativa e fluidez total em todas as telas.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção Portfólio (Vídeos e Imagens) -->
-        <section id="portfolio" class="portfolio-section">
-            <h2 class="section-title">Cases de Sucesso</h2>
-            <div class="portfolio-container">
-                <div class="project-card glass">
-                    <div class="video-container">
-                        <!-- Placeholder para vídeo do site original -->
-                        <video autoplay muted loop poster="thumb1.jpg">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-connection-loop-2826-large.mp4" type="video/mp4">
-                        </video>
+        <!-- Seção Portfólio (Imagens e Vídeos) -->
+        <section id="portfolio" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Cases de Sucesso</h2>
+                <div class="portfolio-grid">
+                    <div class="project-card glass">
+                        <div class="media-container">
+                            <video autoplay muted loop poster="thumb.jpg">
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-connection-loop-2826-large.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="project-info">
+                            <h3>Nexus Cloud System</h3>
+                            <p>SaaS de gerenciamento em nuvem com dashboard interativo.</p>
+                            <span>Dashboard & SaaS</span>
+                        </div>
                     </div>
-                    <div class="project-info">
-                        <h3>Nexus Cloud System</h3>
-                        <span>Dashboard & SaaS</span>
+                    <div class="project-card glass">
+                        <div class="media-container">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Projeto">
+                        </div>
+                        <div class="project-info">
+                            <h3>E-commerce Luxury</h3>
+                            <p>Plataforma de vendas de alto luxo com checkout em 3 etapas.</p>
+                            <span>Mobile App / Web</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Seção Contato -->
-        <section id="contact" class="contact-section">
-            <div class="glass contact-form-container">
-                <h2>Inicie seu Projeto</h2>
-                <form id="contact-form">
-                    <input type="text" placeholder="Seu Nome" required>
-                    <input type="email" placeholder="Seu E-mail" required>
-                    <textarea placeholder="Como podemos ajudar?"></textarea>
-                    <button type="submit" class="btn-primary">Enviar Mensagem</button>
-                </form>
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <div class="contact-wrapper glass">
+                    <div class="contact-info">
+                        <h2>Vamos criar algo novo?</h2>
+                        <p>Entre em contato para discutirmos como a Nexus pode elevar o nível do seu projeto digital.</p>
+                        <div class="info-details">
+                            <p>📍 Palhoça, Brasil</p>
+                            <p>📧 contato@nexus.com.br</p>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <input type="text" placeholder="Seu Nome completo" required>
+                        <input type="email" placeholder="E-mail Corporativo" required>
+                        <select>
+                            <option>Selecione o Serviço</option>
+                            <option>Desenvolvimento Web</option>
+                            <option>UI/UX Design</option>
+                            <option>Consultoria AI</option>
+                        </select>
+                        <textarea placeholder="Fale brevemente sobre o projeto" rows="5"></textarea>
+                        <button type="submit" class="btn-primary">Enviar Proposta</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="glass">
-        <p>&copy; 2024 Jeferson Taveira - Site Nexus. Todos os direitos reservados.</p>
+        <div class="container footer-content">
+            <p>&copy; 2026 Willian Steinbach - Site Nexus. Direitos Reservados.</p>
+            <div class="socials">
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
