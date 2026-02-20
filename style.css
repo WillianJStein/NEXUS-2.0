@@ -40,13 +40,33 @@ to { transform: translate(150px, 150px) scale(1.3); }
 #custom-cursor { width: 8px; height: 8px; background: #fff; position: fixed; border-radius: 50%; pointer-events: none; z-index: 10000; mix-blend-mode: difference; }
 #cursor-blur { width: 500px; height: 500px; background: radial-gradient(circle, rgba(0, 242, 255, 0.12) 0%, transparent 70%); position: fixed; transform: translate(-50%, -50%); pointer-events: none; z-index: 9999; }
 /* 4. NAVBAR */
-.glass-nav {
-position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-width: 90%; background: rgba(10, 10, 12, 0.8);
-backdrop-filter: blur(20px) saturate(180%);
-border: 1px solid var(--glass-border); border-radius: 100px; z-index: 1000; padding: 12px 0;
+.glass-nav { 
+    position: fixed; 
+    top: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 90%; 
+    
+    /* Fundo mais claro e transparente para o efeito de vidro */
+    background: rgba(255, 255, 255, 0.03); 
+    
+    /* O segredo do iPhone: Blur alto + Saturação alta */
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    
+    /* Borda ultra-fina simulando o corte do vidro */
+    border: 1px solid rgba(255, 255, 255, 0.12); 
+    
+    border-radius: 100px; 
+    z-index: 1000; 
+    padding: 12px 0;
+    
+    /* Sombra suave para dar profundidade (flutuação) */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
-.glass-nav .container { display: flex; justify-content: space-between; align-items: center; }
+glass-nav .container {
+    padding: 0 40px; /* Mais espaço nas laterais internas */
+}
 .logo { font-family: 'Syncopate', sans-serif; font-size: 1.2rem; }
 .logo span { color: var(--primary); }
 .nav-links { display: flex; gap: 30px; list-style: none; }
@@ -188,4 +208,5 @@ button.btn-primary { border: none; width: 100%; margin-top: 20px; cursor: none; 
 .stats-grid { flex-direction: column; gap: 40px; }
 .nav-links { display: none; }
 }
+
 
