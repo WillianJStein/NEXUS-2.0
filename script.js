@@ -86,3 +86,24 @@ window.addEventListener('resize', () => {
     canvas.height = window.innerHeight;
     init();
 });
+
+// Simples alternador de imagens para o portfólio
+const portfolioImgs = [
+    'link-da-foto-6-login.jpg',
+    'link-da-foto-7-dashboard.jpg',
+    'link-da-foto-8-kanban.jpg'
+];
+let currentImg = 0;
+
+const viewer = document.querySelector('.image-viewer img');
+
+if (viewer) {
+    setInterval(() => {
+        currentImg = (currentImg + 1) % portfolioImgs.length;
+        viewer.style.opacity = 0;
+        setTimeout(() => {
+            viewer.src = portfolioImgs[currentImg];
+            viewer.style.opacity = 1;
+        }, 500);
+    }, 4000); // Troca a cada 4 segundos
+}
