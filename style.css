@@ -112,7 +112,7 @@ section { position: relative; width: 100%; }
     -webkit-backdrop-filter: blur(30px) saturate(180%);
     border: 1px solid var(--glass-border);
     border-radius: 32px;
-    padding: 50px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Sombra mais suave para não marcar as quinas */
 }
 
 /* 7. STATS CENTRALIZADOS */
@@ -141,8 +141,42 @@ section { position: relative; width: 100%; }
 
 .bento-item {
     position: relative;
-    padding: 40px;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Força o arredondamento em todas as camadas internas */
+    border-radius: 32px !important; 
+    overflow: hidden; /* Impede que o brilho quadrado apareça nas quinas */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    background: transparent; /* Garante que não haja fundo quadrado por baixo */
+}
+
+/* Ajuste do brilho magnético para respeitar as curvas */
+.bento-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* O gradiente agora fica confinado ao arredondamento do pai */
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(0, 242, 255, 0.15), transparent 40%);
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit; /* Herda o arredondamento de 32px */
+}
+
+/* Garante que o conteúdo fique acima do brilho */
+.bento-item > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Correção específica para o item que tem flex-direction row (Mobile Solutions) */
+.item-4 {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 30px;
 }
 
 /* MAGNETIC GLOW EFFECT */
@@ -187,3 +221,4 @@ section { position: relative; width: 100%; }
     .stats-grid { flex-direction: column; gap: 40px; }
     .nav-links { display: none; }
 }
+
